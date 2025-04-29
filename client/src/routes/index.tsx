@@ -1,4 +1,4 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 
 // Page Components
 import LoginPage from "@/features/auth/LoginPage";
@@ -7,7 +7,6 @@ import Dashboard from "@/features/dashboard/Dashboard";
 import App from "@/App";
 import NotFound from "@/components/NotFound";
 import ProtectedRoutes from "@/features/auth/ProtectedRoutes";
-
 
 export const routes = createBrowserRouter([
   {
@@ -19,25 +18,25 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <LoginPage />
+        element: <LoginPage />,
       },
 
-      // Protected
+      // Protected Routes
       {
         element: <ProtectedRoutes />,
         children: [
-            {
-                path: "/dashboard",
-                element: <Dashboard />
-            }
-        ]
+          {
+            path: "/dashboard",
+            element: <Dashboard />,
+          },
+        ],
       },
 
-      // Fallbacks
+      // Fallback
       {
         path: "*",
-        element: <NotFound />
-      }
+        element: <NotFound />,
+      },
     ],
   },
 ]);
