@@ -28,3 +28,9 @@ model Comment {
   post      Post     @relation(fields: [postId], references: [id])
   postId    Int
 }
+
+model User {
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+}

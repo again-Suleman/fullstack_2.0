@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 
 // Page Components
+import App from "@/App";
 import LoginPage from "@/features/auth/LoginPage";
 import Home from "@/components/Home/Home";
-import Dashboard from "@/features/dashboard/Dashboard";
-import App from "@/App";
 import NotFound from "@/components/NotFound";
+import Posts from "@/features/posts/Posts";
 import ProtectedRoutes from "@/features/auth/ProtectedRoutes";
 
 export const routes = createBrowserRouter([
@@ -21,18 +21,18 @@ export const routes = createBrowserRouter([
         element: <LoginPage />,
       },
 
-      // Protected Routes
+      // Protected Routes to test
       {
         element: <ProtectedRoutes />,
         children: [
           {
-            path: "/dashboard",
-            element: <Dashboard />,
+            path: "/post",
+            element: <Posts />,
           },
         ],
       },
 
-      // Fallback
+      // Fallback URL
       {
         path: "*",
         element: <NotFound />,

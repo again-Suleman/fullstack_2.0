@@ -1,13 +1,17 @@
-import { MouseEventHandler } from "react";
 import { Button } from "../ui/button";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
-  const handleLogin: MouseEventHandler<HTMLButtonElement> = (e) => {
-    console.log(e.currentTarget.innerText);
-  };
+  const navigate = useNavigate();
   return (
     <>
-      <Button onClick={handleLogin}>Login Here</Button>
+      <div className="flex flex-col space-y-3">
+        <Button onClick={() => navigate("/post")}>
+          Aunthentication with JWT
+        </Button>
+        {/* <Button onClick={handleLogin}>Posts</Button>
+        <Button onClick={handleLogin}>AI model integragtion</Button> */}
+      </div>
     </>
   );
 }
